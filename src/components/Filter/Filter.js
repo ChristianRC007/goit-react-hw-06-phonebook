@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
-import { connect } from 'react-redux';
-import phonebookActions from '../../redux/phonebook/phonebook-actions';
 
 import './Filter.scss';
 
@@ -32,13 +30,4 @@ Filter.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  value: state.phonebook.filter,
-  isAppeared: state.phonebook.contacts.length,
-});
-
-const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(phonebookActions.changeFilter(e.target.value)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default Filter;

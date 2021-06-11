@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Notification from '../Notification';
-import { connect } from 'react-redux';
-import phonebookActions from '../../redux/phonebook/phonebook-actions';
+
 import './ContactForm.scss';
 
 class ContactForm extends Component {
@@ -70,14 +69,6 @@ class ContactForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  allContacts: state.phonebook.contacts,
-});
-
-const mapDispatchToProps = dispatch => ({
-  onSubmit: contact => dispatch(phonebookActions.addContact(contact)),
-});
-
 ContactForm.propTypes = { onSubmit: PropTypes.func.isRequired };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default ContactForm;

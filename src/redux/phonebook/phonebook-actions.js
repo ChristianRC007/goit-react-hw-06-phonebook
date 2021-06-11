@@ -1,23 +1,16 @@
-import types from './phonebook-types';
 import { v4 as uuid } from 'uuid';
+import { createAction } from '@reduxjs/toolkit';
 
-const addContact = ({ name, number }) => ({
-  type: types.ADD,
+const addContact = createAction('contact/add', ({ name, number }) => ({
   payload: {
     id: uuid(),
     name,
     number,
   },
-});
-const deleteContact = contactId => ({
-  type: types.DELETE,
-  payload: contactId,
-});
+}));
 
-const changeFilter = value => ({
-  type: types.CHANGE_FILTER,
-  payload: value,
-});
+const deleteContact = createAction('contact/delete');
+const changeFilter = createAction('contact/changeFilter');
 
 // eslint-disable-next-line
 export default { addContact, deleteContact, changeFilter };
