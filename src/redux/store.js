@@ -31,7 +31,7 @@ const store = configureStore({
     phonebook: persistReducer(contactsPersistConfig, phonebookReducer),
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  // devTools: process.env.NODE_ENV === 'development',
 });
 
 const persistor = persistStore(store);

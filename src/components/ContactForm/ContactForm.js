@@ -30,9 +30,12 @@ class ContactForm extends Component {
   };
 
   render() {
+    const { handleSubmit, handleInputChange } = this;
+    const { name, number, isExist } = this.state;
+
     return (
       <>
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <label className="form__lable">
             <span className="form__lable__text">Name</span>
             <input
@@ -42,8 +45,8 @@ class ContactForm extends Component {
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
               required
-              value={this.state.name}
-              onChange={this.handleInputChange}
+              value={name}
+              onChange={handleInputChange}
             />
           </label>
           <label className="form__lable">
@@ -55,15 +58,15 @@ class ContactForm extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
               required
-              value={this.state.number}
-              onChange={this.handleInputChange}
+              value={number}
+              onChange={handleInputChange}
             />
           </label>
           <button className="form__button" type="submit">
             Add contact
           </button>
         </form>
-        <Notification isExist={this.state.isExist} />
+        <Notification isExist={isExist} />
       </>
     );
   }
